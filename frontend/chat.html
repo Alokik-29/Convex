@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convex</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-small">Con<span>vex</span></div>
+            </div>
+
+            <div class="sidebar-section">
+                <p class="section-label">Rooms</p>
+                <div id="rooms-list"></div>
+                <button type="button" class="btn-create-room" onclick="showCreateRoom()">+ New Room</button>
+                <button type="button" class="btn-join-private" onclick="showJoinModal()">🔒 Join Private</button>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="avatar" id="user-avatar"></div>
+                    <span id="user-name"></span>
+                </div>
+                <button type="button" class="btn-logout" onclick="logout()">↩</button>
+            </div>
+        </div>
+
+        <!-- Main Chat Area -->
+        <div class="chat-area">
+
+            <!-- Chat Header -->
+            <div class="chat-header">
+                <div>
+                    <h2 id="room-name">Select a room</h2>
+                    <p id="room-description" class="room-desc"></p>
+                </div>
+                <div id="online-users" class="online-users"></div>
+            </div>
+
+            <!-- Messages -->
+            <div class="messages-container" id="messages"></div>
+
+            <!-- Typing indicator -->
+            <div class="typing-indicator" id="typing-indicator"></div>
+
+            <!-- Input Area -->
+            <div class="input-area">
+                <div class="input-wrapper">
+                    <input
+                        type="text"
+                        id="message-input"
+                        placeholder="Message..."
+                        onkeydown="if(event.key==='Enter'){event.preventDefault();sendMessage()}"
+                        oninput="handleTyping()"
+                        disabled
+                    />
+                    <div class="emoji-picker-btn" onclick="toggleEmojiPicker()">😊</div>
+                </div>
+                <button type="button" class="btn-send" onclick="sendMessage()" id="send-btn" disabled>↑</button>
+            </div>
+
+            <!-- Emoji Picker -->
+            <div class="emoji-picker" id="emoji-picker" style="display:none">
+                <span onclick="insertEmoji('👍')">👍</span>
+                <span onclick="insertEmoji('❤️')">❤️</span>
+                <span onclick="insertEmoji('😂')">😂</span>
+                <span onclick="insertEmoji('🔥')">🔥</span>
+                <span onclick="insertEmoji('😮')">😮</span>
+                <span onclick="insertEmoji('😢')">😢</span>
+                <span onclick="insertEmoji('🎉')">🎉</span>
+                <span onclick="insertEmoji('👀')">👀</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Create Room Modal -->
+    <div class="modal-overlay" id="modal" style="display:none">
+        <div class="modal">
+            <h3>Create a Room</h3>
+            <div class="input-group">
+                <label>Room Name</label>
+                <input type="text" id="room-name-input" placeholder="e.g. general" />
+            </div>
+            <div class="input-group">
+                <label>Description</label>
+                <input type="text" id="room-desc-input" placeholder="What's this room about?" />
+            </div>
+            <div class="input-group toggle-group">
+                <label class="toggle-label">
+                    <input type="checkbox" id="room-private" onchange="togglePrivate()">
+                    <span>Private Room</span>
+                </label>
+            </div>
+            <div class="input-group" id="room-password-group" style="display:none">
+                <label>Room Password</label>
+                <input type="password" id="room-password-input" placeholder="Set a password" />
+            </div>
+            <div class="modal-buttons">
+                <button type="button" class="btn-primary" onclick="createRoom()">Create</button>
+                <button type="button" class="btn-cancel" onclick="hideCreateRoom()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Join Private Room Modal -->
+    <div class="modal-overlay" id="join-modal" style="display:none">
+        <div class="modal">
+            <h3>🔒 Join Private Room</h3>
+            <p style="color:#666; font-size:14px; margin-bottom:20px;">Enter the room name and password</p>
+            <div class="input-group">
+                <label>Room Name</label>
+                <input type="text" id="join-code-input" placeholder="e.g. secret" />
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="join-password-input" placeholder="Enter room password" />
+            </div>
+            <p id="join-error" class="error"></p>
+            <div class="modal-buttons">
+                <button type="button" class="btn-primary" onclick="submitJoinPrivate()">Join</button>
+                <button type="button" class="btn-cancel" onclick="hideJoinModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/ui.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>

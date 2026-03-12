@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+sqlalchemy
+alembic
+aiosqlite
+asyncpg
+psycopg2-binary
+python-jose[cryptography]
+passlib[bcrypt]
+python-dotenv
+websockets
+python-multipart
+pydantic-settings
+bcrypt==4.0.1
+email-validator
+redis
