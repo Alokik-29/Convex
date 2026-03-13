@@ -149,7 +149,8 @@ The `docker-compose.yml` includes:
 
 ## 🎥 Demo
 
-[![Watch Demo](https://img.shields.io/badge/Watch-Demo-red)](https://youtu.be/no_46axnxgA)
+[![Watch Demo](https://img.shields.io/badge/▶%20Watch%20Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/no_46axnxgA)
+
 
 ## 👨‍💻 Author
 
