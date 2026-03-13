@@ -147,6 +147,10 @@ The `docker-compose.yml` includes:
 - **PostgreSQL** — Production database
 - **Redis** — For scaling WebSocket broadcasts
 
+## 🎥 Demo
+
+[![Watch Demo](https://img.shields.io/badge/Watch-Demo-red)](https://youtu.be/no_46axnxgA)
+
 ## 👨‍💻 Author
 
 Alokik Gour — [GitHub](https://github.com/Alokik-29) | [LinkedIn](https://linkedin.com/in/alokik29)
