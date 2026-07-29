@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
+from schemas.user import UserCreate, UserResponse, Token
 from database import get_db
 from models.user import User
 from schemas.user import UserCreate, UserResponse, Token
@@ -39,4 +40,4 @@ async def login(
             detail="Invalid credentials"
         )
     access_token = create_access_token(data={"sub": str(user.id)})
-    return {"access_token": access_token, "token_type": "bearer"}
+    return {"access_token": access_token, "token_type": "bearer", "username": user.username}
