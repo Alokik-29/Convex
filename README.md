@@ -1,11 +1,21 @@
 # 💬 Convex
 
-A production-ready real-time chat application built with FastAPI and WebSockets.
+A production-ready real-time chat application built with FastAPI, WebSockets, and React.
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-latest-green)
+![React](https://img.shields.io/badge/React-Vite-61DAFB?logo=react)
 ![WebSockets](https://img.shields.io/badge/WebSockets-enabled-orange)
 ![Docker](https://img.shields.io/badge/Docker-ready-blue)
+![Live](https://img.shields.io/badge/Live-Demo-brightgreen)
+
+## 🌐 Live Demo
+
+**[convex-alokik.vercel.app](https://convex-alokik.vercel.app)**
+
+## 🎥 Demo Video
+
+[![Watch Demo](https://img.shields.io/badge/▶%20Watch%20Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/no_46axnxgA)
 
 ## 🚀 Features
 
@@ -17,7 +27,7 @@ A production-ready real-time chat application built with FastAPI and WebSockets.
 - **Emoji picker** for messages
 - **Rate limiting** middleware (30 requests/minute)
 - **Docker support** with PostgreSQL & Redis
-- **Beautiful Discord-like UI**
+- **Beautiful Discord-like UI built with React**
 
 ## 🔒 Room System
 
@@ -44,15 +54,19 @@ A production-ready real-time chat application built with FastAPI and WebSockets.
 - Rate limiting middleware
 
 **Frontend:**
-- Vanilla HTML, CSS, JavaScript
-- WebSocket client
+- React + Vite
+- React Router for navigation
+- Axios for API calls
+- WebSocket client for real-time messaging
 - Responsive Discord-inspired UI
 
 **DevOps:**
 - Docker + Docker Compose
 - PostgreSQL + Redis ready
+- Deployed on Render (backend) + Vercel (frontend)
 
 ## 📁 Project Structure
+
 ```
 Convex/
 ├── backend/
@@ -66,20 +80,26 @@ Convex/
 │   ├── config.py        # Settings
 │   ├── Dockerfile
 │   └── requirements.txt
-├── frontend/
-│   ├── index.html       # Login/Register
-│   ├── chat.html        # Chat UI
-│   ├── style.css        # Styles
-│   └── js/
-│       ├── auth.js
-│       ├── chat.js
-│       └── ui.js
+├── client/              # React frontend
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Login.jsx
+│   │   │   ├── Register.jsx
+│   │   │   ├── Chat.jsx
+│   │   │   ├── ChatArea.jsx
+│   │   │   ├── Sidebar.jsx
+│   │   │   ├── Message.jsx
+│   │   │   ├── CreateRoomModal.jsx
+│   │   │   └── JoinPrivateModal.jsx
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   └── package.json
 └── docker-compose.yml
 ```
 
 ## ⚙️ Setup & Installation
 
-### Without Docker
+### Backend
 
 1. Clone the repository:
 ```bash
@@ -111,9 +131,18 @@ DATABASE_URL=sqlite+aiosqlite:///./chatsphere.db
 uvicorn main:app --reload
 ```
 
-6. Open `frontend/index.html` in your browser.
+### Frontend
+
+```bash
+cd client
+npm install
+npm run dev
+```
+
+Open `http://localhost:5173` in your browser.
 
 ### With Docker
+
 ```bash
 docker-compose up --build
 ```
