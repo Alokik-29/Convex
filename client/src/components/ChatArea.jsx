@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import Message from './Message'
 
-const API = 'http://localhost:8000'
-const WS = 'ws://localhost:8000'
+const API = 'https://convex-backend-6vq8.onrender.com'
+const WS = 'wss://convex-backend-6vq8.onrender.com'
 
 export default function ChatArea({ room }) {
   const [messages, setMessages] = useState([])

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
 
-const API = 'http://localhost:8000'
+const API = 'https://convex-backend-6vq8.onrender.com'
 
 export default function Login() {
   const [email, setEmail] = useState('')

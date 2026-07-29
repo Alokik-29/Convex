@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import Sidebar from './Sidebar'
 import ChatArea from './ChatArea'
 
-const API = 'http://localhost:8000'
+const API = 'https://convex-backend-6vq8.onrender.com'
 
 export default function Chat() {
   const [rooms, setRooms] = useState([])
