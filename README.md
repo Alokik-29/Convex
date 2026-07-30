@@ -62,7 +62,7 @@ A production-ready real-time chat application built with FastAPI, WebSockets, an
 
 **DevOps:**
 - Docker + Docker Compose
-- PostgreSQL + Redis ready
+- PostgreSQL ready (swappable from SQLite)
 - Deployed on Render (backend) + Vercel (frontend)
 
 ## 📁 Project Structure
@@ -174,7 +174,6 @@ docker-compose up --build
 The `docker-compose.yml` includes:
 - **Backend** — FastAPI app
 - **PostgreSQL** — Production database
-- **Redis** — For scaling WebSocket broadcasts
 
 ## 👨‍💻 Author
 
